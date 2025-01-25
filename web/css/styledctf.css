@@ -1,0 +1,868 @@
+/* preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a; /* Cor do fundo do preloader */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #0066cc;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Esconde o preloader após carregamento */
+body.loaded #preloader {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+/* Reset e configurações iniciais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Início */
+.header-container {
+  background-color: #0a0a0a;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+  border-bottom: 2px solid #0066cc;
+}
+
+.header-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+.header-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.action-button {
+  display: inline-block;
+  background-color: #0066cc;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 20px;
+  }
+
+  .header-content h1 {
+    font-size: 28px;
+  }
+
+  .header-content p {
+    font-size: 16px;
+  }
+
+  .action-button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+p {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Seção "estatísticas" */
+.header-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  animation: fadeIn 4s ease-in-out;
+}
+
+.header-stat {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.header-stat span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+/* Para quem é o curso */
+.who-is-this-course {
+  background-color: #121212;
+  padding: 50px 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.who-is-this-course h2 {
+  font-size: 28px;
+  color: #0066cc;
+  margin-bottom: 30px;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-box {
+  background: linear-gradient(145deg, #2c2c2c, #121212);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-box i {
+  font-size: 40px;
+  color: #3399ff;
+  margin-bottom: 15px;
+}
+
+.profile-box h3 {
+  font-size: 20px;
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+.profile-box p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+  }
+  .profile-box {
+    margin: 0 auto;
+  }
+}
+
+/* Por que fazer este curso */
+
+.why-take-course {
+  background-color: #0a0a0a;
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.why-take-course h2 {
+  font-size: 28px;
+  color: #0066cc;
+  margin-bottom: 30px;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feature-box {
+  background-color: #121212;
+  border: 2px solid #0066cc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feature-box i {
+  font-size: 40px;
+  color: #0066cc;
+  margin-bottom: 15px;
+}
+
+.feature-box h3 {
+  font-size: 20px;
+  color: #3399ff;
+  margin-bottom: 10px;
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-box {
+    width: 90%;
+  }
+}
+
+/* Foto do Professor */
+
+.about-the-professor {
+  background-color: #121212;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.about-the-professor h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 40px;
+}
+
+.professor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.professor-card {
+  background: linear-gradient(145deg, #2c2c2c, #121212);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+.professor-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #0066cc;
+  margin-bottom: 20px;
+}
+
+.professor-details h3 {
+  font-size: 24px;
+  color: #0066cc;
+  margin-bottom: 15px;
+}
+
+.professor-details p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.professor-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.professor-details ul li {
+  font-size: 16px;
+  color: #f2f2f2;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.professor-details ul li i {
+  font-size: 20px;
+  color: #3399ff;
+}
+
+@media (max-width: 768px) {
+  .professor-card {
+    padding: 20px;
+  }
+  .professor-details ul li {
+    font-size: 14px;
+  }
+}
+
+/* O que você vai aprender */
+.what-you-will-learn {
+  background-color: #121212;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.what-you-will-learn h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 40px;
+}
+
+.topics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topic-box {
+  background: linear-gradient(145deg, #2c2c2c, #121212);
+  border: 2px solid #0066cc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.topic-box i {
+  font-size: 40px;
+  color: #3399ff;
+  margin-bottom: 15px;
+}
+
+.topic-box h3 {
+  font-size: 20px;
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+.topic-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .topics-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botão de Compra */
+.buy-button {
+  display: inline-block;
+  background-color: #0066cc;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  animation: pulse 1.5s infinite;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buy-button:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.special-offer {
+  background: linear-gradient(145deg, #121212, #2c2c2c);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.special-offer h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 20px;
+}
+
+.offer-text {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.countdown {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebrar para novas linhas se necessário */
+  gap: 10px; /* Espaço entre as caixas */
+  margin: 20px 0 30px;
+  padding: 0 10px; /* Adiciona espaçamento interno */
+  justify-content: center; /* Centraliza os itens */
+}
+
+.countdown-item {
+  flex: 1 1 calc(25% - 10px); /* Ajusta dinamicamente o tamanho para 4 por linha */
+  min-width: 100px; /* Tamanho mínimo para evitar caixas pequenas demais */
+  max-width: calc(25% - 10px); /* Tamanho máximo para 4 por linha */
+  text-align: center;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background: #121212;
+  border: 2px solid #0066cc;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* Número e rótulo em coluna */
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-item span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0066cc;
+  margin-bottom: 5px;
+}
+
+.countdown-item label {
+  font-size: 10px;
+  color: #ddd;
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+  .countdown-item {
+    flex: 1 1 calc(50% - 10px); /* Ajusta para 2 por linha em telas médias */
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-item {
+    flex: 1 1 calc(100% - 10px); /* Ajusta para 1 por linha em telas pequenas */
+    max-width: calc(
+      100% - 10px
+    ); /* Garante que as caixas respeitem as margens */
+  }
+}
+
+.price-section {
+  display: flex; /* Torna os elementos filhos flexíveis */
+  flex-direction: column; /* Organiza os filhos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  margin-top: 30px;
+  text-align: center;
+}
+
+.original-price {
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-bottom: 10px;
+}
+
+.discounted-price {
+  font-size: 26px;
+  color: #fff;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.installment-info {
+  font-size: 18px;
+  color: #3399ff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.payment-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 40px;
+}
+
+.payment-icons i {
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.payment-icons i:hover {
+  color: #0066cc;
+  transform: scale(1.1);
+}
+
+/* Garantia */
+.guarantee-section {
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.guarantee-section h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 20px;
+}
+
+.guarantee-section i {
+  color: #0066cc;
+  margin-right: 10px;
+}
+
+.guarantee-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.benefit-box {
+  background: #0a0a0a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.benefit-box i {
+  font-size: 40px;
+  color: #0066cc;
+  margin-bottom: 15px;
+}
+
+.benefit-box h3 {
+  font-size: 18px;
+  color: #3399ff;
+  margin-bottom: 10px;
+}
+
+.benefit-box p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Seção de Depoimentos */
+.testimonial-section {
+  background: #0a0a0a;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.testimonial-section h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 40px;
+}
+
+.testimonial-carousel {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.testimonial {
+  flex: 0 0 300px;
+  background: #121212;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  transition: transform 0.5s ease, opacity 0.3s ease, z-index 0.3s ease;
+  z-index: 1;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 10;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: #3399ff;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.details {
+  text-align: left;
+}
+
+.details .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.details .stars {
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ddd;
+  margin: 0;
+}
+
+/* Seção de Redes Sociais */
+.social-section {
+  background-color: #121212;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-section h2 {
+  font-size: 32px;
+  color: #3399ff;
+  margin-bottom: 20px;
+}
+
+.social-section p {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que os links fiquem responsivos */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  background: #0066cc;
+  transform: translateY(-5px);
+}
+
+.social-link i {
+  font-size: 24px;
+}
+
+.social-link span {
+  font-size: 18px;
+}
+
+#toast-compras {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #00000036;
+  transform: translateY(calc(100% + 40px));
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+#toast-compras.show {
+  transform: none;
+  opacity: 1;
+}
+
+#toast-compras * {
+  font-family: "Roboto", sans-serif;
+}
+
+#toast-compras svg {
+  width: 40px;
+  height: 40px;
+  fill: #11f849;
+  border: 3px solid #11f849;
+  padding: 5px;
+  border-radius: 100px;
+}
+
+#toast-compras .textos .linha-1 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0 0 5px;
+}
+
+#toast-compras .textos .linha-1 .nome {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #1b1b1b;
+  margin: 0;
+}
+
+#toast-compras .textos .linha-1 .tempo {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+#toast-compras .textos .pagamento {
+  font-size: 16px;
+  line-height: 1;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+/* botão que vai para a seção de compras */
+html {
+  scroll-behavior: smooth;
+}

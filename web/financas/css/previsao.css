@@ -1,0 +1,215 @@
+/* Estilo Geral */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1d2634;
+  color: #9e9ea4;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Cabeçalho */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4caf50;
+}
+
+h2 {
+  text-align: center;
+  margin: 30px 0 10px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #4caf50;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Formulário */
+#orcamento-form {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #263043;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaçamento entre os campos */
+  box-sizing: border-box; /* Garante que padding seja incluído no tamanho total */
+}
+
+/* Ajustes para os campos do formulário */
+#orcamento-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #bdbdbd;
+}
+
+#orcamento-form input,
+#orcamento-form select {
+  width: 100%; /* Garante que os campos respeitem o tamanho do box */
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background-color: #2b3444;
+  color: #ffffff;
+  box-sizing: border-box; /* Inclui padding no tamanho total */
+}
+
+/* Botão no formulário */
+#orcamento-form button {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#orcamento-form button:hover {
+  background-color: #388e3c;
+  transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #orcamento-form {
+    padding: 15px;
+    gap: 10px; /* Menor espaçamento entre os campos */
+  }
+
+  #orcamento-form input,
+  #orcamento-form select {
+    font-size: 14px; /* Ajusta o tamanho do texto */
+  }
+
+  #orcamento-form button {
+    font-size: 14px; /* Ajusta o tamanho do botão */
+  }
+}
+
+/* Tabelas */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #1d2634;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  border: 1px solid #555;
+  text-align: left;
+  color: #ffffff;
+}
+
+table th {
+  background-color: #2b3444;
+  font-weight: 700;
+  color: #4caf50;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #262e3d;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #1d2634;
+}
+
+table tbody tr:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+/* Botões de Ação */
+table button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+table button:hover {
+  background-color: #d32f2f;
+}
+
+table button[type="button"]:nth-child(1) {
+  background-color: #4caf50;
+}
+
+table button[type="button"]:nth-child(1):hover {
+  background-color: #388e3c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #orcamento-form {
+    padding: 15px;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 10px;
+  }
+}
+
+/* Quadro de Totais */
+#totais {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #263043;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.totais-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.totais-box {
+  text-align: center;
+  background-color: #1d2634;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  margin: 10px;
+}
+
+.totais-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.totais-box p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}

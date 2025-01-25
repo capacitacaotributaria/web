@@ -1,0 +1,349 @@
+/* Estilos Globais */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #ff6b00;
+  font-weight: 700;
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Estilo para a Seção Quem é o Professor */
+.about-the-professor {
+  background: linear-gradient(135deg, #0e1c2b, #333c49);
+  color: #fff;
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.professor-content {
+  display: flex;
+  flex-direction: column; /* Coloca a imagem acima do texto */
+  align-items: center;
+  gap: 40px;
+}
+
+.professor-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.professor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.professor-details {
+  text-align: center;
+}
+
+.professor-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff6b00; /* Cor vibrante */
+  margin-bottom: 20px;
+}
+
+.professor-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+.btn-primary {
+  background-color: #ff6b00;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e55c00;
+  transform: scale(1.05);
+}
+
+/* Seção "estatísticas" */
+
+.header-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  animation: fadeIn 4s ease-in-out;
+}
+
+.header-stat {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.header-stat span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9a3a;
+}
+
+/* Seção "Cursos" */
+.course-section {
+  padding: 50px 0;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+}
+
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.course-box {
+  background-color: #2e2e2e;
+  width: 29%; /* Ajusta a largura para caber três boxes na linha */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+}
+
+.course-box:hover {
+  transform: translateY(-5px);
+}
+
+.course-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.course-type {
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.course-type.live {
+  background-color: #ff0000; /* Cor para curso ao vivo */
+  color: white;
+  animation: pulse 1s infinite;
+}
+
+/* Efeito de brilho ou contorno pulsante no ícone */
+.course-type.live i {
+  animation: glow 1.5s infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 15px rgba(0, 255, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+}
+
+.course-type.recorded {
+  background-color: #06360a; /* Cor para curso gravado */
+  color: white;
+}
+
+.course-summary {
+  font-size: 1rem;
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.course-price {
+  margin: 20px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.new-price {
+  font-size: 1.2rem;
+  color: #ff6b00;
+}
+
+.course-date {
+  margin-bottom: 20px;
+}
+
+.course-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6b00;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.course-link:hover {
+  background-color: #e65b00;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .course-box {
+    width: 100%; /* Tornar os boxes 100% em telas pequenas */
+    margin-bottom: 20px;
+  }
+}
+
+/* Seção de Depoimentos */
+.testimonial-section {
+  background: #0d0d0d;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.testimonial-carousel {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.testimonial {
+  flex: 0 0 300px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  transition: transform 0.5s ease, opacity 0.3s ease, z-index 0.3s ease;
+  z-index: 1;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 10;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: #ff9a3a;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.details {
+  text-align: left;
+}
+
+.details .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.details .stars {
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ddd;
+  margin: 0;
+}
+
+/* Seção de Redes Sociais */
+.social-section {
+  background: #111;
+  padding: 60px 20px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-link {
+  color: #ff6b00;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.social-link:hover {
+  color: #e45e00;
+}
+
+/* Rodapé */
+footer {
+  background: #111;
+  color: #888;
+  padding: 20px;
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+  font-display: swap;
+}

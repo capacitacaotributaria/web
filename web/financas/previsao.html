@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previsão Orçamentária Mensal</title>
+    <link rel="stylesheet" href="css/previsao.css" />
+  </head>
+  <body>
+    <h1>Previsão Orçamentária Mensal</h1>
+
+    <!-- Formulário para adicionar classificações -->
+    <form id="orcamento-form" action="processa_recebimento.php" method="POST">
+      <label for="classificacao">Classificação:</label>
+      <input type="text" id="classificacao" name="classificacao" required />
+
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Selecione</option>
+        <option value="receita">Receita</option>
+        <option value="despesa">Despesa</option>
+      </select>
+
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" name="valor" step="0.01" required />
+
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <!-- Tabela de Receitas -->
+    <h2>Receitas</h2>
+    <table border="1" id="receitas-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Classificação</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Receitas serão listadas aqui -->
+      </tbody>
+    </table>
+
+    <!-- Tabela de Despesas -->
+    <h2>Despesas</h2>
+    <table border="1" id="despesas-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Classificação</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Despesas serão listadas aqui -->
+      </tbody>
+    </table>
+
+    <!-- Quadro de Totais -->
+    <div id="totais">
+      <h2>Totais</h2>
+      <div class="totais-container">
+        <div class="totais-box">
+          <h3>Total de Receitas</h3>
+          <p id="total-receitas">R$ 0,00</p>
+        </div>
+        <div class="totais-box">
+          <h3>Total de Despesas</h3>
+          <p id="total-despesas">R$ 0,00</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function loadClassificacoes() {
+        try {
+          const response = await fetch("php/get_classificacoes.php");
+          const data = await response.json();
+
+          // Separar receitas e despesas
+          const receitas = data.filter((item) => item.tipo === "receita");
+          const despesas = data.filter((item) => item.tipo === "despesa");
+
+          // Preencher tabelas
+          populateTable("receitas-table", receitas);
+          populateTable("despesas-table", despesas);
+
+          // Atualizar totais
+          updateTotals(receitas, despesas);
+        } catch (error) {
+          console.error("Erro ao carregar classificações:", error);
+        }
+      }
+
+      // Função para preencher as tabelas
+      function populateTable(tableId, items) {
+        const tbody = document.querySelector(`#${tableId} tbody`);
+        tbody.innerHTML = "";
+
+        items.forEach((item) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${item.id}</td>
+            <td contenteditable="true" data-field="classificacao">${
+              item.classificacao
+            }</td>
+            <td contenteditable="true" data-field="valor">${parseFloat(
+              item.valor
+            ).toFixed(2)}</td>
+            <td>
+              <button onclick="updateClassificacao(${
+                item.id
+              }, this)">Salvar</button>
+              <button onclick="deleteClassificacao(${item.id})">Excluir</button>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      // Função para atualizar os totais
+      function updateTotals(receitas, despesas) {
+        const totalReceitas = receitas.reduce(
+          (sum, item) => sum + parseFloat(item.valor),
+          0
+        );
+        const totalDespesas = despesas.reduce(
+          (sum, item) => sum + parseFloat(item.valor),
+          0
+        );
+
+        document.getElementById(
+          "total-receitas"
+        ).textContent = `R$ ${totalReceitas.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+        })}`;
+        document.getElementById(
+          "total-despesas"
+        ).textContent = `R$ ${totalDespesas.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+        })}`;
+      }
+
+      document
+        .getElementById("orcamento-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const classificacao = document.getElementById("classificacao").value;
+          const tipo = document.getElementById("tipo").value;
+          const valor = document.getElementById("valor").value;
+
+          try {
+            await fetch("php/add_classificacao.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ classificacao, tipo, valor }),
+            });
+            loadClassificacoes();
+            document.getElementById("orcamento-form").reset();
+          } catch (error) {
+            console.error("Erro ao adicionar classificação:", error);
+          }
+        });
+
+      window.onload = loadClassificacoes;
+    </script>
+  </body>
+</html>

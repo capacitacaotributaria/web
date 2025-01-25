@@ -1,0 +1,427 @@
+/* Reset de estilo básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Efeito de fade-in para a mensagem */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Estilo geral da barra de contagem regressiva */
+#countdown-bar {
+  background-color: #111;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do relógio digital */
+#countdown {
+  font-size: 20px;
+  font-family: "Digital-7", monospace;
+  color: #00aaff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Unidades de tempo (números) */
+.time-unit {
+  font-size: 30px;
+  color: #00aaff;
+  font-weight: bold;
+  margin: 0 3px;
+}
+
+/* Rótulos das unidades de tempo (Dias, Horas, etc.) */
+.unit-label {
+  font-size: 16px;
+  color: #bbb;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+/* Mensagem de urgência */
+#urgent-message {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #bbb;
+  letter-spacing: 2px;
+}
+
+#urgent-message span {
+  color: #ff4444;
+}
+
+/* Efeito de brilho nas unidades */
+.time-unit {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #countdown {
+    font-size: 24px;
+  }
+  .time-unit {
+    font-size: 24px;
+  }
+  .unit-label {
+    font-size: 14px;
+  }
+  #urgent-message {
+    font-size: 14px;
+  }
+}
+
+/* Corpo da página */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Seção chamada para ação e formulário */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha os itens no topo */
+  padding: 50px 20px;
+  background-color: #222;
+  flex-wrap: wrap; /* Permite quebra de linha para telas pequenas */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap; /* Garante que os itens se ajustem */
+}
+
+.form-left {
+  flex: 1;
+  min-width: 300px; /* Define um tamanho mínimo para evitar que fique muito pequeno */
+  color: #fff;
+  padding: 20px;
+  text-align: center; /* Centraliza o conteúdo */
+}
+
+.form-left .hero-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #00aaff;
+  text-align: center; /* Centraliza o título */
+}
+
+.form-left .hero-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #bbb;
+  text-align: center; /* Centraliza a descrição */
+}
+
+.hero-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #333; /* Fundo escuro para destacar */
+  border: 2px solid #00aaff; /* Borda destacada */
+  border-radius: 10px;
+  text-align: center; /* Centraliza o texto */
+}
+
+.hero-details h3 {
+  color: #00aaff; /* Cor principal para o título */
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.hero-details ul {
+  list-style: none; /* Remove marcadores */
+  padding: 0;
+}
+
+.hero-details li {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero-details li strong {
+  color: #00aaff; /* Cor de destaque para os rótulos */
+}
+
+/* Formulário */
+.form-right {
+  flex: 1;
+  min-width: 300px; /* Define um tamanho mínimo para evitar colapso */
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 20px; /* Adiciona espaço quando empilhado */
+}
+
+.form-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-right input,
+.form-right textarea {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+}
+
+.form-right .checkbox-label {
+  display: flex;
+  align-items: center;
+  color: #bbb;
+  font-size: 14px;
+  margin: 20px;
+}
+
+.form-right .privacy-text {
+  color: #bbb;
+  font-size: 14px;
+  margin: 20px;
+  margin-bottom: 20px;
+}
+
+.form-right .submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #00aaff;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  animation: pulsate 1s infinite;
+}
+
+.form-right .submit-btn:hover {
+  background-color: #0088cc;
+}
+
+/* Animação de pulsação */
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Seção "O que você vai aprender?" */
+.learn-section {
+  padding: 50px 20px;
+  background-color: #222;
+  text-align: center;
+}
+
+.learn-section .section-title {
+  font-size: 32px;
+  color: #00aaff;
+  margin-bottom: 30px;
+}
+
+.learn-boxes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que os boxes se ajustem */
+  gap: 20px; /* Adiciona espaçamento entre os boxes */
+  margin-bottom: 40px;
+}
+
+.learn-box {
+  background-color: #444;
+  padding: 20px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.learn-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00aaff;
+}
+
+.learn-box p {
+  color: #bbb;
+}
+
+.learn-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Seção "Quem é o professor?" */
+.about-teacher {
+  padding: 50px 20px;
+  background-color: #333;
+  text-align: center;
+}
+
+.teacher-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teacher-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 30px;
+  border: 4px solid #00aaff;
+}
+
+.teacher-info p {
+  max-width: 600px;
+  color: #bbb;
+}
+
+/* Rodapé com redes sociais */
+footer {
+  background-color: #111;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.social-media {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  font-size: 25px;
+  margin: 0 15px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: #00aaff;
+}
+
+footer p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Responsividade: ajustando para telas pequenas */
+@media (max-width: 768px) {
+  .hero {
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    flex-direction: column; /* Garante que os itens fiquem empilhados */
+    align-items: center; /* Centraliza os itens horizontalmente */
+  }
+
+  .form-left,
+  .form-right {
+    width: 100%; /* Itens ocupam toda a largura disponível */
+    margin-bottom: 20px; /* Espaço entre os itens */
+  }
+
+  /* Ajuste para a seção "O que você vai aprender?" */
+  .teacher-info,
+  .learn-boxes {
+    flex-direction: column; /* Empilha os boxes verticalmente */
+    gap: 20px; /* Espaço entre os boxes */
+  }
+
+  .learn-box {
+    width: 100%; /* Cada box ocupa toda a largura disponível */
+  }
+
+  /* Ajuste na seção "Quem é o professor?" */
+  .teacher-info {
+    flex-direction: column; /* Empilha a foto e o texto */
+    align-items: center; /* Centraliza os itens */
+  }
+
+  .teacher-photo {
+    margin-right: 0; /* Remove a margem direita */
+    margin-bottom: 20px; /* Adiciona margem inferior */
+  }
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #00aaff; /* Cor principal */
+  color: #fff; /* Texto em branco */
+  font-size: 18px; /* Tamanho da fonte */
+  font-weight: bold; /* Deixa o texto em negrito */
+  border: none; /* Remove bordas */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Mostra o ponteiro */
+  text-align: center; /* Centraliza o texto */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+  transition: all 0.3s ease; /* Suaviza transições */
+}
+
+/* Animação ao passar o mouse */
+.cta-btn:hover {
+  background-color: #0088cc; /* Cor ao passar o mouse */
+  transform: scale(1.05); /* Aumenta o tamanho */
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+/* Efeito de clique */
+.cta-btn:active {
+  transform: scale(0.95); /* Reduz o tamanho ao clicar */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+  .cta-btn {
+    width: 100%; /* O botão ocupa toda a largura disponível */
+    font-size: 16px; /* Texto levemente menor */
+  }
+}
